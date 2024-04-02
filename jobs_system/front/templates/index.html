@@ -9,6 +9,18 @@
 {% endblock %}
 
 {% block body %}
+    <div class="sm-container">
+        <div class="list-group " >
+            {% for category in categories %}
+<!--            a href="#" class="list-group-item list-group-item-action list-group-item-primary"-->
+                <a href="/job_list/{{ category.id }}" class="list-group-item list-group-item-action list-group-item-info">{{ category.name }}岗位
+
+
+                <small>&nbsp;&nbsp;3 days ago</small>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
     <div class="lg-container">
         <img src="image/soochow02.svg" alt="图片描述" width="700">
 <!--        <div id="carousel-example-generic" class="carousel slide index-banner" data-ride="carousel">-->
@@ -76,16 +88,5 @@
             </ul>
         </div>
     </div>
-    <div class="sm-container">
-        <div class="list-group">
-            {% for category in categories %}
-<!--            a href="#" class="list-group-item list-group-item-action list-group-item-primary"-->
-                <a href="/job_list/{{ category.id }}" class="list-group-item list-group-item-action list-group-item-info">{{ category.name }}岗位
 
-
-                <small>&nbsp;&nbsp;3 days ago</small>
-                </a>
-            {% endfor %}
-        </div>
-    </div>
 {% endblock %}

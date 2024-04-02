@@ -19,7 +19,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
 
 .sm-container{
     width: 245px;
-    float: right;
+    float: left;
 }
 /* 修改导航链接文字颜色，并添加 !important */
 .navbar-light .navbar-nav .nav-link {
