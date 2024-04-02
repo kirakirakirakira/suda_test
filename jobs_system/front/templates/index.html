@@ -13,7 +13,7 @@
         <div class="list-group " >
             {% for category in categories %}
 <!--            a href="#" class="list-group-item list-group-item-action list-group-item-primary"-->
-                <a href="/job_list/{{ category.id }}" class="list-group-item list-group-item-action" style="color: #ffffff; background-color: #79B5BE">{{ category.name }}岗位
+                <a href="/job_list/{{ category.id }}" class="list-group-item list-group-item-action">{{ category.name }}岗位
                     <!--                <small>&nbsp;&nbsp;3 days ago</small>-->
                 </a>
             {% endfor %}
@@ -87,7 +87,7 @@
             </ul>
         </div>
     </div>
-    <div class="sm-container-right" style="float: right; padding-left: 70px">
+    <div class="sm-container-right">
         <img src="/image/img-job-2.jpg" alt="图片描述" height="296">
     </div>
 

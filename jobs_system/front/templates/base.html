@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="background: linear-gradient(#DFF1F4, #ffffff); height: 100vh;background-attachment: fixed">
+<html style="background: linear-gradient(#c7f0f8, #ffffff); height: 100vh;background-attachment: fixed">
 
 <head>
     <meta charset="utf-8">
@@ -20,14 +20,14 @@
     <link rel="stylesheet" href="{% static 'css/signbase.css' %}">
 </head>
 
-<body style="background-color: rgba(255,255,255,0)">
+<body class="body">
 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <!--<nav class="navbar navbar-default" style="background-color: #336699; top: 0; width: 100%;">-->
-    <div class="container">
-        <div class="navbar-img navbar-header">
-            <img src="/image/soochow02.svg" style="margin-left: -200px" alt="图片描述" width="200">
+    <div class="title">
+        <div class="navbar-img flex-grow-1">
+            <img src="/image/soochow02.svg" alt="图片描述" width="200">
         </div>
-        <div class="navbar-header">
+        <div class="navbar-title flex-grow-1">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only"></span>
@@ -35,11 +35,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" style="font-size: 40px; padding-left: 80px" href="/">苏大职位推荐系统</a>
+            <a class="navbar-title-text" style="font-size: 35px" href="/">苏大职位推荐系统</a>
         </div>
+        <div class="flex-grow-1"></div>
+    </div>
+
+    <div class="container">
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav  nav-button-box">
                 <li class=""><a href="/">首页<span class="sr-only">(current)</span></a></li>
 
                 {% if front_user %}

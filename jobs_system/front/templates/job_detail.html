@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block body %}
-    <div class="post-container">
+    <div class="post-container box">
         <h2>{{ job.name }}</h2>
         <p class="post-info-group">
             <span>所属类别：{{ job.category.name }}</span>
@@ -36,7 +36,7 @@
         </div>
     </div>
     <div>
-        <div class="" style="margin-top: 20px;border: 1px solid #000000;width: 150px;border-radius: 5px;padding: 10px">
+        <div class="box" style="margin-top: 20px;width: 150px;;padding: 10px">
             {% if not flag_mask %}
             <label for="">与您的匹配程度：</label>
             <select name="" id="input-score" class="form-control" style="width: 100px">
@@ -54,7 +54,7 @@
             {% endif %}
         </div>
     </div>
-    <div class="comment-group">
+    <div class="comment-group box">
         <h3>评论列表</h3>
         <ul class="comment-list-group">
             {% for comment in comments %}
@@ -73,7 +73,7 @@
 
         </ul>
     </div>
-    <div class="add-comment-group">
+    <div class="add-comment-group box">
         <h3>发布留言</h3>
         <textarea name="comment" id="comment-textarea" style="width: 100%; resize:vertical;"></textarea>
         <div class="comment-btn-group">

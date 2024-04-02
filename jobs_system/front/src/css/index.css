@@ -1,92 +1,96 @@
-.index-banner{
+.index-banner {
     border-radius: 10px;
     overflow: hidden;
     height: 400px;
 }
 
-.index-banner img{
+.index-banner img {
     height: 200px;
 }
 
-.post-group{
-    border: 1px solid #e48a8a;
+.post-group {
+    border: 1px solid #729384;
     margin-top: 25px;
     overflow: hidden;
     border-radius: 15px;
     padding: 20px;
 }
 
-.post-group-head{
+.post-group-head {
     overflow: hidden;
     list-style: none;
     border-radius: 5px;
 }
 
-.post-group-head li{
+.post-group-head li {
     float: left;
     padding: 7px 10px;
 }
 
-.post-group-head li a{
-    color:#000;
+.post-group-head li a {
+    color: #000;
 }
 
-.post-group-head li.active{
+.post-group-head li.active {
     background: #e4b2b2;
 }
 
-.post-list-group{
+.post-list-group {
     margin-top: 20px;
 }
 
-.post-list-group li{
+.post-list-group li {
     overflow: hidden;
     padding-bottom: 20px;
 }
 
-.author-avatar-group{
+.author-avatar-group {
     float: left;
 }
 
-.author-avatar-group img{
+.author-avatar-group img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
 
-.post-info-group{
+.post-info-group {
     float: left;
     margin-left: 20px;
-    border-bottom: 1px solid #bb7272;
+    border-bottom: 1px solid #729384;
     width: 75%;
     padding-bottom: 20px;
 }
 
-.post-info-group .post-info{
+.post-info-group .post-info {
     margin-top: 10px;
     font-size: 13px;
     color: #8c8c8c;
 }
 
-.post-info span{
+.post-info span {
     margin-right: 10px;
     color: #675555;
 }
+
 a.list-group-item-info, button.list-group-item-info {
-    color: #333;
-    background-color: #f6fafc;
+
 }
+
 .list-group-item {
     position: relative;
     display: block;
     padding: 15px 25px;
     margin-bottom: -1px;
-    border: 2px solid #cecdcd;
-    width: max-content;
-    font-size: large;
+    border: 1px solid #cecdcd;
+    width: 100%;
+    color: #ffffff !important;
+    background-color: #79B5BE;
 }
 
-a.list-group-item.list-group-item-action.list-group-item-info {}
+a.list-group-item.list-group-item-action.list-group-item-info {
+}
+
 .list-group-item:first-child {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;

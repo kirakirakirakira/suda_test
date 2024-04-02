@@ -23,22 +23,24 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
 }
 
 .sm-container-right{
-    width: 245px;
-    float: right;
+    float: right
 }
 /* 修改导航链接文字颜色，并添加 !important */
 .navbar-light .navbar-nav .nav-link {
-    color: #336699 !important; /* 设置导航链接文字颜色为白色，并提高优先级 */
+    color: #429aff !important; /* 设置导航链接文字颜色为白色，并提高优先级 */
 }
 
 /* 添加导航栏底部边框，并添加 !important */
 .navbar {
-    border-bottom: 2px solid #ffffff !important; /* 添加底部边框，颜色为白色，并提高优先级 */
+    /*border-bottom: 2px solid #ffffff !important; !* 添加底部边框，颜色为白色，并提高优先级 *!*/
 }
 
 /* 修改导航栏背景色，并添加 !important */
 .navbar {
-    background-color: #ede3e3 !important; /* 设置导航栏背景色为深蓝色，并提高优先级 */
+    /*background-color: #ede3e3 !important; !* 设置导航栏背景色为深蓝色，并提高优先级 *!*/
+    /*background-color: rgba(255,255,255,0)*/
+    /*// 渐变色*/
+    background-color: rgba(255,255,255,0)
 }
 /* 修改导航栏字体样式 */
 .navbar {
@@ -50,4 +52,31 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
     font-size: 16px; /* 设置字体大小为 16 像素 */
 }
 
+.navbar-img {
+    /*margin-left: -200px*/
+}
 
+.body {
+    background-color: rgba(255,255,255,0)
+}
+
+.title {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+.navbar-title-text {
+    text-align: center;
+}
+
+.nav-button-box {
+    padding-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    float: left;
+}
