@@ -27,29 +27,31 @@
             <p>学历要求：{{ job.edu_level }}</p>
             <p>介绍：{{ job.content }}</p>
         </div>
-        <div class="" style="margin-top: 20px;border: 1px solid #000000;width: 150px;border-radius: 5px;padding: 10px">
-            {% if not flag_mask %}
-                <label for="">与您的匹配程度：</label>
-                <select name="" id="input-score" class="form-control" style="width: 100px">
-                    <option value="5">完全匹配</option>
-                    <option value="4">较为匹配</option>
-                    <option value="3">匹配</option>
-                    <option value="2">较不匹配</option>
-                    <option value="1">无关</option>
-                </select>
-                <button class="btn btn-danger btn-sm" id="score-btn" style="margin-top: 10px" job-id="{{ job.id }}">
-                    提交评分
-                </button>
-            {% else %}
-                <label for="">您的评分：{{ flag_mask.score }}</label>
-            {% endif %}
-        </div>
         <div class="" style="margin-bottom: 40px">
             <button class="btn btn-sm btn-danger pull-right " id="add-collect-btn" job-id="{{ job.id }}"
                     style="margin-left: 30px;">收藏
             </button>
             <button class="btn btn-sm btn-primary pull-right " id="add-order-btn" job-id="{{ job.id }}">投递简历
             </button>
+        </div>
+    </div>
+    <div>
+        <div class="" style="margin-top: 20px;border: 1px solid #000000;width: 150px;border-radius: 5px;padding: 10px">
+            {% if not flag_mask %}
+            <label for="">与您的匹配程度：</label>
+            <select name="" id="input-score" class="form-control" style="width: 100px">
+                <option value="5">完全匹配</option>
+                <option value="4">较为匹配</option>
+                <option value="3">匹配</option>
+                <option value="2">较不匹配</option>
+                <option value="1">无关</option>
+            </select>
+            <button class="btn btn-danger btn-sm" id="score-btn" style="margin-top: 10px" job-id="{{ job.id }}">
+                提交评分
+            </button>
+            {% else %}
+            <label for="">您的评分：{{ flag_mask.score }}</label>
+            {% endif %}
         </div>
     </div>
     <div class="comment-group">

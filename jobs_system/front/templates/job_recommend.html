@@ -16,16 +16,17 @@
             <thead>
             <tr>
                 <th>名称</th>
-                <th>图片</th>
+                <th>简介</th>
                 <th>查看详情</th>
             </tr>
             </thead>
             <tbody>
             {% for item in response_data %}
                 <tr>
-                    <td>{{ item.name }}</td>
-                    <td>
-                        <img src="/image/{{ item.image }}" alt="" style="width: 120px;height: 90px">
+                    <td style="font-size: 18px">{{ item.name }}</td>
+                    <td  style="width: 1000px;">
+                        {{ item.content }}
+<!--                        <img src="/image/{{ item.image }}" alt="" style="width: 120px;height: 90px">-->
                     </td>
                     <td>
                         <a href="/job_detail/{{ item.id }}">

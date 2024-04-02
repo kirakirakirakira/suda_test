@@ -294,6 +294,7 @@ def user_based_recommendation(request, user_id):
             'name': item.name,
             'id': item.id,
             'image': item.image,
+            'content': item.content,
             'similarity': similarity,
         })
     context = {
