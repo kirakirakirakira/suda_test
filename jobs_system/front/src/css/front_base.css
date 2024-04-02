@@ -21,6 +21,11 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
     width: 245px;
     float: left;
 }
+
+.sm-container-right{
+    width: 245px;
+    float: right;
+}
 /* 修改导航链接文字颜色，并添加 !important */
 .navbar-light .navbar-nav .nav-link {
     color: #336699 !important; /* 设置导航链接文字颜色为白色，并提高优先级 */

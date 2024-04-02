@@ -17,25 +17,25 @@
             <span>发布时间：{{ job.create_time }}</span>
             <span>浏览量：{{ job.view_number }}</span>
         </p>
-        <div class="">
-            <img src="/image/{{ job.image }}" alt="" style="width: 300px;height: 200px">
-        </div>
+<!--        <div class="">-->
+<!--            <img src="/image/{{ job.image }}" alt="" style="width: 300px;height: 200px">-->
+<!--        </div>-->
 
         <div class="post-content">
-            <p>薪资范围：{{ job.money }}元</p>
+            <p>薪资范围：{{ job.money }} 元</p>
             <p>岗位数量：{{ job.number }}</p>
             <p>学历要求：{{ job.edu_level }}</p>
             <p>介绍：{{ job.content }}</p>
         </div>
-        <div class="" style="margin-top: 20px;border: 2px solid cyan;width: 150px;border-radius: 5px;padding: 10px">
+        <div class="" style="margin-top: 20px;border: 1px solid #000000;width: 150px;border-radius: 5px;padding: 10px">
             {% if not flag_mask %}
-                <label for="">请您评分：</label>
+                <label for="">与您的匹配程度：</label>
                 <select name="" id="input-score" class="form-control" style="width: 100px">
-                    <option value="5">5分</option>
-                    <option value="4">4分</option>
-                    <option value="3">3分</option>
-                    <option value="2">2分</option>
-                    <option value="1">1分</option>
+                    <option value="5">完全匹配</option>
+                    <option value="4">较为匹配</option>
+                    <option value="3">匹配</option>
+                    <option value="2">较不匹配</option>
+                    <option value="1">无关</option>
                 </select>
                 <button class="btn btn-danger btn-sm" id="score-btn" style="margin-top: 10px" job-id="{{ job.id }}">
                     提交评分

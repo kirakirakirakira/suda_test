@@ -9,20 +9,19 @@
 {% endblock %}
 
 {% block body %}
-    <div class="sm-container">
+    <div class="sm-container" style="float: left; padding-right: 70px; width: 250px">
         <div class="list-group " >
             {% for category in categories %}
 <!--            a href="#" class="list-group-item list-group-item-action list-group-item-primary"-->
-                <a href="/job_list/{{ category.id }}" class="list-group-item list-group-item-action list-group-item-info">{{ category.name }}岗位
-
-
-                <small>&nbsp;&nbsp;3 days ago</small>
+                <a href="/job_list/{{ category.id }}" class="list-group-item list-group-item-action" style="color: #ffffff; background-color: #79B5BE">{{ category.name }}岗位
+                    <!--                <small>&nbsp;&nbsp;3 days ago</small>-->
                 </a>
             {% endfor %}
         </div>
     </div>
     <div class="lg-container">
-        <img src="image/soochow02.svg" alt="图片描述" width="700">
+<!--        <img src="image/soochow02.svg" alt="图片描述" width="700">-->
+        <img src="image/img-job-1.jpg" alt="图片描述" width="700">
 <!--        <div id="carousel-example-generic" class="carousel slide index-banner" data-ride="carousel">-->
 <!--            &lt;!&ndash; 指示器 &ndash;&gt;-->
 <!--            <ol class="carousel-indicators">-->
@@ -66,9 +65,9 @@
 <!--            </a>-->
 <!--        </div>-->
 
-        <div class="post-group">
+        <div class="post-group" style="background-color: rgba(202,238,219,0.21)">
             <ul class="post-group-head">
-                <li class="active"><a href="#">热门职位</a></li>
+                <li class="active" style="background-color: #fff"><a href="#">热门职位</a></li>
             </ul>
             <ul class="post-list-group">
                 {% for hot in hots %}
@@ -87,6 +86,9 @@
                 {% endfor %}
             </ul>
         </div>
+    </div>
+    <div class="sm-container-right" style="float: right; padding-left: 70px">
+        <img src="/image/img-job-2.jpg" alt="图片描述" height="296">
     </div>
 
 {% endblock %}

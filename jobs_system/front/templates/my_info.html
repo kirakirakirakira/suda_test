@@ -7,7 +7,7 @@
     <script src="{% static 'js/my_info.js' %}"></script>
 {% endblock %}
 {% block body %}
-    <div class="outer-box">
+    <div class="outer-box" style="background-color: rgba(255,255,255,0)">
         <h2 class="page-title">
             个人信息
         </h2>
@@ -40,8 +40,9 @@
                 <label for="">自我介绍：</label>
                 <textarea name="" id="my_content" cols="" rows="" style="width: 300px;height: 200px">{{ info.content }}</textarea>
             </div>
-            <div class="form-group">
-                <button class="btn btn-sm btn-primary" id="submit-btn">提交信息</button>
+            <div class="form-group d-flex align-content-center">
+                <button class="btn btn-primary" id="upload">上传简历</button>
+                <button class="btn btn-primary" id="submit-btn">提交信息</button>
             </div>
         </div>
     </div>

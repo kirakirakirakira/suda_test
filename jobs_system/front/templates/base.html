@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="background: linear-gradient(#DFF1F4, #ffffff); height: 100vh;background-attachment: fixed">
 
 <head>
     <meta charset="utf-8">
@@ -20,10 +20,13 @@
     <link rel="stylesheet" href="{% static 'css/signbase.css' %}">
 </head>
 
-<body>
+<body style="background-color: rgba(255,255,255,0)">
 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-<!--<nav class="navbar navbar-default" style="background-color: #336699; top: 0; width: 100%;">-->
+    <!--<nav class="navbar navbar-default" style="background-color: #336699; top: 0; width: 100%;">-->
     <div class="container">
+        <div class="navbar-img navbar-header">
+            <img src="/image/soochow02.svg" style="margin-left: -200px" alt="图片描述" width="200">
+        </div>
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -32,7 +35,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">职位招聘平台</a>
+            <a class="navbar-brand" style="font-size: 40px; padding-left: 80px" href="/">苏大职位推荐系统</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -40,10 +43,10 @@
                 <li class=""><a href="/">首页<span class="sr-only">(current)</span></a></li>
 
                 {% if front_user %}
-                    <li><a href="{% url 'info_manage:my_info' %}">个人信息</a></li>
-                    <li><a href="{% url 'info_manage:my_order' %}">我的投递</a></li>
-                    <li><a href="{% url 'info_manage:my_collect' %}">我的收藏</a></li>
-                    <li><a href="/job_recommend/{{ front_user.user_id }}">职位推荐</a></li>
+                <li><a href="{% url 'info_manage:my_order' %}">我的投递</a></li>
+                <li><a href="{% url 'info_manage:my_collect' %}">我的收藏</a></li>
+                <li><a href="{% url 'info_manage:my_info' %}">我的信息</a></li>
+                <li><a href="/job_recommend/{{ front_user.user_id }}">职位推荐</a></li>
                 {% endif %}
                 <li><a href="{% url 'info_manage:view_count' %}">浏览量排行</a></li>
                 <li><a href="/admin/" target="_blank">后台管理</a></li>
@@ -52,17 +55,17 @@
 
             <ul class="nav navbar-nav navbar-right">
                 {% if front_user %}
-                    <li><a href="">您好：{{ front_user.username }}</a></li>
-                    <li><a href="{% url 'info_manage:logout' %}">退出</a></li>
+                <li><a href="">您好：{{ front_user.username }}</a></li>
+                <li><a href="{% url 'info_manage:logout' %}">退出</a></li>
                 {% else %}
-                    <li><a href="{% url 'info_manage:login' %}">登录</a></li>
-                    <li><a href="{% url 'info_manage:register' %}">注册</a></li>
+                <li><a href="{% url 'info_manage:login' %}">登录</a></li>
+                <li><a href="{% url 'info_manage:register' %}">注册</a></li>
                 {% endif %}
             </ul>
         </div>
     </div>
 </nav>
-<div class="main-container">
+<div class="main-container" style="width: 1500px;">
     {% block body %}
 
     {% endblock %}
