@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block title %}
+    商品信息
+{% endblock %}
+
+{% block body %}
+    <h1>职位信息</h1>
+    <div class="panel panel-default" style="margin-top: 10px">
+        <div class="panel-heading">职位信息</div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>名称</th>
+                <th>薪资范围</th>
+                <th>岗位数量</th>
+                <th>学历要求</th>
+                <th>查看详情</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for job in jobs %}
+                <tr>
+                    <td>{{ job.name }}</td>
+                    <td>{{ job.money }}</td>
+                    <td>{{ job.number }}</td>
+                    <td>{{ job.edu_level }}</td>
+                    <td>
+                        <a href="/job_detail/{{ job.id }}">
+                            <button class="btn btn-sm btn-prev">查看详情</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

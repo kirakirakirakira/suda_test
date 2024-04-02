@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    首页
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="lg-container">
+        <div id="carousel-example-generic" class="carousel slide index-banner" data-ride="carousel">
+            <!-- 指示器 -->
+            <ol class="carousel-indicators">
+                {% for hot in hots %}
+                    {% if loop.first %}
+                        <li data-target="#carousel-example-generic" data-slide-to="{{ loop.index0 }}"
+                            class="active"></li>
+                    {% else %}
+                        <li data-target="#carousel-example-generic" data-slide-to="{{ loop.index0 }}"></li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+            <!-- 轮播图 -->
+            <div class="carousel-inner" role="listbox" style="height: 500px">
+                {% for hot in hots %}
+                    {% if forloop.first %}
+                        <div class="item active">
+                            <a href="/job_detail/{{ hot.job.id }}">
+                                <img src="/image/{{ hot.job.image }}" alt="">
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="item">
+                            <a href="/job_detail/{{ hot.job.id }}">
+                                <img src="/image/{{ hot.job.image }}" alt="">
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+
+            <!-- 左右切换的控制按钮 -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div class="post-group">
+            <ul class="post-group-head">
+                <li class="active"><a href="#">热门职位</a></li>
+            </ul>
+            <ul class="post-list-group">
+                {% for hot in hots %}
+                    <li>
+                        <div class="post-info-group">
+                            <p class="post-title">
+                                <a href="/job_detail/{{ hot.job.id }}">{{ hot.job.name }}</a>
+                            </p>
+                            <p class="post-info">
+                                <span>名称：{{ hot.job.name }}</span>
+                                <span>所属分类：{{ hot.job.category.name }}</span>
+                                <span>创建时间：{{ hot.job.create_time }}</span>
+                            </p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="sm-container">
+        <div class="list-group">
+            {% for category in categories %}
+<!--            a href="#" class="list-group-item list-group-item-action list-group-item-primary"-->
+                <a href="/job_list/{{ category.id }}" class="list-group-item list-group-item-action list-group-item-info">{{ category.name }}岗位
+
+
+                <small>&nbsp;&nbsp;3 days ago</small>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

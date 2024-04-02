@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <script src="{% static 'js/my_order.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+    我的投递信息
+{% endblock %}
+
+{% block body %}
+    <h1>我的投递信息</h1>
+    <div class="panel panel-default" style="margin-top: 10px">
+        <div class="panel-heading">我的投递信息</div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>职位名称</th>
+                <th>薪资范围</th>
+                <th>投递时间</th>
+                <th>状态</th>
+                <th>职位详情</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.job.name }}</td>
+                    <td>{{ order.job.money }}</td>
+                    <td>{{ order.create_time }}</td>
+                    <td>
+                        {% if order.state == 0 %}
+                            <p style="color: red">简历未通过</p>
+                        {% elif order.state == 1 %}
+                            <p style="color: green">简历通过</p>
+                        {% elif order.state == 2 %}
+                            <p style="color: green">面试通过</p>
+                        {% elif order.state == 3 %}
+                            <p style="color: red">面试未通过</p>
+                        {% elif order.state == 4 %}
+                            <p style="color: green">已发送录用通知</p>
+                        {% elif order.state == 5 %}
+                            <p style="color: green">已发送简历</p>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="/job_detail/{{ order.job.id }}">
+                            <button class="btn btn-sm btn-prev">查看详情</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

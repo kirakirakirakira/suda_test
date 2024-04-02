@@ -1,0 +1,48 @@
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    list-style: none;
+}
+
+.main-container{
+    width: 990px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.lg-container{
+    width: 730px;
+    float: left;
+}
+
+.sm-container{
+    width: 245px;
+    float: right;
+}
+/* 修改导航链接文字颜色，并添加 !important */
+.navbar-light .navbar-nav .nav-link {
+    color: #336699 !important; /* 设置导航链接文字颜色为白色，并提高优先级 */
+}
+
+/* 添加导航栏底部边框，并添加 !important */
+.navbar {
+    border-bottom: 2px solid #ffffff !important; /* 添加底部边框，颜色为白色，并提高优先级 */
+}
+
+/* 修改导航栏背景色，并添加 !important */
+.navbar {
+    background-color: #ede3e3 !important; /* 设置导航栏背景色为深蓝色，并提高优先级 */
+}
+/* 修改导航栏字体样式 */
+.navbar {
+    font-family: sans-serif; /* 设置字体为 Arial 或者系统默认 sans-serif 字体 */
+}
+
+/* 修改导航栏字体大小 */
+.navbar {
+    font-size: 16px; /* 设置字体大小为 16 像素 */
+}
+
+

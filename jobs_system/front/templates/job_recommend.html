@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title %}
+    猜你喜欢
+{% endblock %}
+
+{% block body %}
+    <h1>猜你喜欢</h1>
+    <div class="panel panel-default" style="margin-top: 10px">
+        <div class="panel-heading">职位推荐</div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>名称</th>
+                <th>图片</th>
+                <th>查看详情</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in response_data %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>
+                        <img src="/image/{{ item.image }}" alt="" style="width: 120px;height: 90px">
+                    </td>
+                    <td>
+                        <a href="/job_detail/{{ item.id }}">
+                            <button class="btn btn-success btn-sm">查看详情</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
