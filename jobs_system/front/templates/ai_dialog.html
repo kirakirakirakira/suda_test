@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对话界面</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .chat-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            height: 80vh;
+            overflow-y: auto;
+        }
+        .message {
+            margin: 10px 0;
+        }
+        .user-message {
+            text-align: right;
+        }
+        .user-message .message-content {
+            background-color: #007bff;
+            color: #fff;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .ai-message .message-content {
+            background-color: #f1f1f1;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .input-container {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 600px;
+            padding: 10px;
+            background: #fff;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="message user-message">
+        <div class="message-content">你好！</div>
+    </div>
+    <div class="message ai-message">
+        <div class="message-content">你好，有什么我可以帮助的吗？</div>
+    </div>
+      <div class="message user-message">
+        <div class="message-content">你好！</div>
+    </div>
+    <div class="message ai-message">
+        <div class="message-content">你好，有什么我可以帮助的吗？</div>
+    </div>
+</div>
+
+<div class="input-container">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="输入你的消息...">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button">发送</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('button').click(function() {
+            var userInput = $('input').val();
+            if(userInput.trim() !== "") {
+                // 添加用户消息
+                $('.chat-container').append('<div class="message user-message"><div class="message-content">' + userInput + '</div></div>');
+                // 清空输入框
+                $('input').val('');
+
+                // 模拟AI回复
+                setTimeout(function() {
+                    var aiReply = "这是AI的回复";
+                    $('.chat-container').append('<div class="message ai-message"><div class="message-content">' + aiReply + '</div></div>');
+                    // 自动滚动到底部
+                    $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
+                }, 500);
+            }
+        });
+    });
+</script>
+</body>
+</html>

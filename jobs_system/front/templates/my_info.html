@@ -5,13 +5,54 @@
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/signbase.css' %}">
     <script src="{% static 'js/my_info.js' %}"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .chat-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            height: 80vh;
+            overflow-y: auto;
+        }
+        .message {
+            margin: 10px 0;
+        }
+        .user-message {
+            text-align: right;
+        }
+        .user-message .message-content {
+            background-color: #007bff;
+            color: #fff;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .ai-message .message-content {
+            background-color: #f1f1f1;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .input-container {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 600px;
+            padding: 10px;
+            background: #fff;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+
 {% endblock %}
 {% block body %}
-    <div class="outer-box" style="background-color: rgba(255,255,255,0)">
-        <h2 class="page-title">
-            个人信息
-        </h2>
-        <div class="sign-box">
+    <div id="content" class="outer-box" style="background-color: rgba(255,255,255,0)">
+        <h2 class="page-title">个人信息</h2>
+        <div class="sign-box" id="signbox">
             <div class="form-group">
                 <label for="">用户名：</label>
                 <input type="text" class="form-control" id="username" value="{{ info.username }}">
@@ -38,12 +79,120 @@
             </div>
             <div class="form-group">
                 <label for="">自我介绍：</label>
-                <textarea name="" id="my_content" cols="" rows="" style="width: 300px;height: 200px">{{ info.content }}</textarea>
+                <textarea name="" id="my_content" cols="" rows="" style="width: 300px; height: 200px;">{{ info.content }}</textarea>
             </div>
-            <div class="form-group d-flex justify-content-sm-around">
+            <div id="button-group" class="form-group d-flex justify-content-sm-around">
                 <button class="btn btn-primary" id="upload">上传简历</button>
-                <button class="btn btn-primary" id="submit-btn">提交信息</button>
+                <input type="file" id="fileInput" style="display: none;" />
+                <button class="btn btn-primary" id="submit-btn">保存信息</button>
+                <button class="btn btn-primary" id="analyze-cv">简历分析</button>
+                <button class="btn btn-primary" id="ai-analyze">AI分析</button>
+            </div>
+
+        </div>
+        <div id="analyze-section" class="hidden">
+                <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4>简历分析结果</h4>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">总体评分: <span class="badge badge-success">85/100</span></h5>
+                <p class="card-text">以下是详细评价：</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong>内容质量：</strong> 文笔良好且内容全面。
+                    </li>
+                    <li class="list-group-item">
+                        <strong>格式和结构：</strong> 布局清晰且专业。
+                    </li>
+                    <li class="list-group-item">
+                        <strong>经验和技能：</strong> 经验相关且令人印象深刻。
+                    </li>
+                    <li class="list-group-item">
+                        <strong>语法和拼写：</strong> 错误较少。
+                    </li>
+                </ul>
+                <div class="mt-4">
+                    <h4>建议：</h4>
+                    <p>建议添加更多项目工作的详细信息，并包括量化的成果指标。此外，请根据每个职位的要求调整简历，以更好地突出相关技能。</p>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                分析结果由简历分析器提供
             </div>
         </div>
     </div>
+            <div>
+                <button class="btn btn-primary" id="return-button">返回</button>
+            </div>
+            </div>
+    </div>
+<div>
+    <div class="chat-container">
+    <div class="message user-message">
+        <div class="message-content">你好！</div>
+    </div>
+    <div class="message ai-message">
+        <div class="message-content">你好，有什么我可以帮助的吗？</div>
+    </div>
+      <div class="message user-message">
+        <div class="message-content">你好！</div>
+    </div>
+    <div class="message ai-message">
+        <div class="message-content">你好，有什么我可以帮助的吗？</div>
+    </div>
+</div>
+
+<div class="input-container">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="输入你的消息...">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button">发送</button>
+        </div>
+    </div>
+</div>
+</div>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const aianalyze=document.getElementById('ai-analyze');
+    const signbox = document.getElementById('signbox');
+    const uploadButton = document.getElementById('upload');
+    const fileInput = document.getElementById('fileInput');
+    const analyzeButton = document.getElementById('analyze-cv');
+    const returnButton = document.getElementById('return-button');
+    const buttonGroup = document.getElementById('button-group');
+    const analyzeSection = document.getElementById('analyze-section');
+
+    uploadButton.addEventListener('click', function() {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', function() {
+        if (fileInput.files.length > 0) {
+            alert('上传成功！');
+        }
+    });
+    aianalyze.addEventListener('click', function() {
+        setTimeout(function() {
+            buttonGroup.classList.add('hidden');
+            signbox.classList.add('hidden');
+            analyzeSection.classList.remove('hidden');
+        }, 1000); // 延迟1秒执行
+    });
+    analyzeButton.addEventListener('click', function() {
+        setTimeout(function() {
+            buttonGroup.classList.add('hidden');
+            signbox.classList.add('hidden');
+            analyzeSection.classList.remove('hidden');
+        }, 1000); // 延迟1秒执行
+    });
+
+    returnButton.addEventListener('click', function() {
+        analyzeSection.classList.add('hidden');
+        buttonGroup.classList.remove('hidden');
+        signbox.classList.remove('hidden');
+    });
+});
+    </script>
 {% endblock %}
