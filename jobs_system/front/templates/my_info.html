@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="{% static 'css/signbase.css' %}">
     <script src="{% static 'js/my_info.js' %}"></script>
     <style>
+.input-container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+    .returnbutton{
+    text-align: center;
+    }
         .hidden {
             display: none;
         }
@@ -123,12 +132,10 @@
             </div>
         </div>
     </div>
-            <div>
-                <button class="btn btn-primary" id="return-button">返回</button>
-            </div>
+
             </div>
     </div>
-<div>
+<div id="aidialog" class="hidden ">
     <div class="chat-container">
     <div class="message user-message">
         <div class="message-content">你好！</div>
@@ -143,8 +150,8 @@
         <div class="message-content">你好，有什么我可以帮助的吗？</div>
     </div>
 </div>
-
-<div class="input-container">
+<div class="input-container-wrapper">
+<div class="input-container ">
     <div class="input-group">
         <input type="text" class="form-control" placeholder="输入你的消息...">
         <div class="input-group-append">
@@ -152,10 +159,15 @@
         </div>
     </div>
 </div>
+    </div>
+</div>
+<div class="returnbutton">
+    <button class="btn btn-primary hidden" id="return-button">返回</button>
 </div>
     <script>
 document.addEventListener('DOMContentLoaded', function() {
     const aianalyze=document.getElementById('ai-analyze');
+    const aidialog=document.getElementById('aidialog');
     const signbox = document.getElementById('signbox');
     const uploadButton = document.getElementById('upload');
     const fileInput = document.getElementById('fileInput');
@@ -177,7 +189,8 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             buttonGroup.classList.add('hidden');
             signbox.classList.add('hidden');
-            analyzeSection.classList.remove('hidden');
+            aidialog.classList.remove('hidden');
+            returnButton.classList.remove('hidden');
         }, 1000); // 延迟1秒执行
     });
     analyzeButton.addEventListener('click', function() {
@@ -185,6 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
             buttonGroup.classList.add('hidden');
             signbox.classList.add('hidden');
             analyzeSection.classList.remove('hidden');
+            returnButton.classList.remove('hidden');
         }, 1000); // 延迟1秒执行
     });
 
@@ -192,6 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
         analyzeSection.classList.add('hidden');
         buttonGroup.classList.remove('hidden');
         signbox.classList.remove('hidden');
+        returnButton.classList.add('hidden');
     });
 });
     </script>
