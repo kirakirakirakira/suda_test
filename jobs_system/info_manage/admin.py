@@ -1,11 +1,15 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import JobModel, CollectModel, OrderModel, UserInfoModel, CategoryModel, HotModel, CommentModel, MarkModel
+from .models import JobModel, CollectModel, OrderModel, UserInfoModel, CategoryModel, HotModel, CommentModel, MarkModel, \
+    UserInfoModelProxy
 
 
 class UserInfoAdmin(admin.ModelAdmin):
     list_display = ('username', 'password', 'phone', 'create_time')
+
+class RecommendUserInfoAdmin(admin.ModelAdmin):
+    list_display = ('username','edu_level','major','age', 'phone', 'create_time')
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -46,6 +50,7 @@ class MarkAdmin(admin.ModelAdmin):
 
 
 admin.site.register(UserInfoModel, UserInfoAdmin)
+admin.site.register(UserInfoModelProxy, RecommendUserInfoAdmin)
 admin.site.register(CategoryModel, CategoryAdmin)
 admin.site.register(JobModel, JobAdmin)
 admin.site.register(OrderModel, OrderAdmin)

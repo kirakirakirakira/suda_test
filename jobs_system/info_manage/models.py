@@ -21,6 +21,13 @@ class UserInfoModel(models.Model):
         return self.username
 
 
+class UserInfoModelProxy(UserInfoModel):
+    class Meta:
+        proxy = True
+        verbose_name = "推荐求职者"
+        verbose_name_plural = verbose_name
+
+
 class CategoryModel(models.Model):
     name = models.CharField(max_length=100, verbose_name='名称')
 

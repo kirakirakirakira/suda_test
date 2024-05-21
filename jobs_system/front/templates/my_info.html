@@ -151,28 +151,28 @@
 
 <p>荣誉奖项突出：列出了多个奖项，显示了候选人在竞赛中的优异表现和编程能力。</div>
     </div>
-      <div class="message user-message">
-        <div class="message-content">有什么可以改进的地方？</div>
-    </div>
-    <div class="message ai-message">
-        <div class="message-content">改进建议：
-<p>格式和布局：</p>
+<!--      <div class="message user-message">-->
+<!--        <div class="message-content">有什么可以改进的地方？</div>-->
+<!--    </div>-->
+<!--    <div class="message ai-message">-->
+<!--        <div class="message-content">改进建议：-->
+<!--<p>格式和布局：</p>-->
 
-<p>增加段落分隔：为了增强可读性，可以在每个部分之间增加空行或标题，分隔不同的内容块。</p>
-<p>统一格式：确保所有项目和工作经历的描述格式一致，例如统一使用项目符号或编号。</p>
-<p>简洁明了：
-</p>
-<p>减少重复信息：一些信息可以简化，例如工作职责中的“负责”和“主要负责”可以合并。</p>
-<p>精简描述：某些项目介绍和职责描述可以精简，使其更加简洁明了。</p>
-<p>具体细节：</p>
+<!--<p>增加段落分隔：为了增强可读性，可以在每个部分之间增加空行或标题，分隔不同的内容块。</p>-->
+<!--<p>统一格式：确保所有项目和工作经历的描述格式一致，例如统一使用项目符号或编号。</p>-->
+<!--<p>简洁明了：-->
+<!--</p>-->
+<!--<p>减少重复信息：一些信息可以简化，例如工作职责中的“负责”和“主要负责”可以合并。</p>-->
+<!--<p>精简描述：某些项目介绍和职责描述可以精简，使其更加简洁明了。</p>-->
+<!--<p>具体细节：</p>-->
 
-<p>教育背景中的主修课程：具体列出主要专业课程，可以突出与岗位相关的课程。</p>
-<p>工作经历中的具体成果：在描述工作职责时，可以增加一些具体的成果或业绩数据，例如项目成功上线后的效果或优化后的性能提升。</p>
-<p>突出技术能力：</p>
+<!--<p>教育背景中的主修课程：具体列出主要专业课程，可以突出与岗位相关的课程。</p>-->
+<!--<p>工作经历中的具体成果：在描述工作职责时，可以增加一些具体的成果或业绩数据，例如项目成功上线后的效果或优化后的性能提升。</p>-->
+<!--<p>突出技术能力：</p>-->
 
-<p>技术栈：可以在简历开头增加一个简短的“技术栈”部分，列出掌握的编程语言、框架和工具，这样可以让招聘人员一目了然地看到候选人的技术能力。</p>
-<p>技能评价：对每项技术技能进行熟练度评价，例如“精通”、“熟练”、“了解”。</p></div>
-    </div>
+<!--<p>技术栈：可以在简历开头增加一个简短的“技术栈”部分，列出掌握的编程语言、框架和工具，这样可以让招聘人员一目了然地看到候选人的技术能力。</p>-->
+<!--<p>技能评价：对每项技术技能进行熟练度评价，例如“精通”、“熟练”、“了解”。</p></div>-->
+<!--    </div>-->
 </div>
 <div class="input-container-wrapper">
 <div class="input-container ">
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
             signbox.classList.add('hidden');
             analyzeSection.classList.remove('hidden');
             returnButton.classList.remove('hidden');
-        }, 1000); // 延迟1秒执行
+        }, 1500); // 延迟1秒执行
     });
 
     returnButton.addEventListener('click', function() {
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     $('.chat-container').append('<div class="message ai-message"><div class="message-content">' + aiReply + '</div></div>');
                     // 自动滚动到底部
                     $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
-                }, 500);
+                }, 1500);
             }
         });
     });
