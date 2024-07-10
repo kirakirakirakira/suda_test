@@ -5,7 +5,8 @@
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/signbase.css' %}">
     <script src="{% static 'js/my_info.js' %}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js
+"></script>
     <style>
 .input-container-wrapper {
     display: flex;
@@ -100,8 +101,11 @@
             </div>
 
         </div>
+
         <div id="analyze-section" class="hidden">
+
                 <div class="container mt-5">
+
         <div class="card">
             <div class="card-header bg-primary text-white">
                 <h4>简历分析结果</h4>
@@ -135,6 +139,7 @@
     </div>
 
             </div>
+        <div id="main" style="width: 600px; height: 600px;" class="hidden"></div>
         <iframe id="aidialog" class="hidden chat-container" src="https://yiyan.baidu.com/" width="800" height="600" style="border:none;"></iframe>
     </div>
 
@@ -191,10 +196,12 @@
     <button class="btn btn-primary hidden" id="return-button">返回</button>
 </div>
     <script>
+
 document.addEventListener('DOMContentLoaded', function() {
     const aianalyze=document.getElementById('ai-analyze');
     const aidialog=document.getElementById('aidialog');
     const signbox = document.getElementById('signbox');
+    const mainbox = document.getElementById('main');
     const uploadButton = document.getElementById('upload');
     const fileInput = document.getElementById('fileInput');
     const analyzeButton = document.getElementById('analyze-cv');
@@ -216,6 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
             buttonGroup.classList.add('hidden');
             signbox.classList.add('hidden');
             aidialog.classList.remove('hidden');
+
             returnButton.classList.remove('hidden');
         }, 1000); // 延迟1秒执行
     });
@@ -224,6 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
             buttonGroup.classList.add('hidden');
             signbox.classList.add('hidden');
             analyzeSection.classList.remove('hidden');
+            mainbox.classList.remove('hidden');
             returnButton.classList.remove('hidden');
         }, 1500); // 延迟1秒执行
     });
@@ -233,6 +242,8 @@ document.addEventListener('DOMContentLoaded', function() {
         buttonGroup.classList.remove('hidden');
         signbox.classList.remove('hidden');
         returnButton.classList.add('hidden');
+        aidialog.classList.add('hidden');
+        mainbox.classList.add('hidden');
     });
 });
     $(document).ready(function() {
@@ -268,6 +279,49 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+  title: {
+    text: '能力评价雷达图'
+  },
+  legend: {
+    data: ['平均水平', '你的水平']
+  },
+  radar: {
+    // shape: 'circle',
+    indicator: [
+      { name: '专业能力', max: 6500 },
+      { name: '工作经验', max: 16000 },
+      { name: '沟通能力', max: 30000 },
+      { name: '协作能力', max: 38000 },
+      { name: '问题解决能力', max: 52000 },
+      { name: '职业态度', max: 25000 }
+    ]
+  },
+  series: [
+    {
+      name: 'avg vs yours',
+      type: 'radar',
+      data: [
+        {
+          value: [4200, 3000, 20000, 35000, 50000, 18000],
+          name: '平均水平'
+        },
+        {
+          value: [5000, 14000, 28000, 26000, 42000, 21000],
+          name: '你的水平'
+        }
+      ]
+    }
+  ]
+};
+
+    option && myChart.setOption(option);
     </script>
 
 {% endblock %}
